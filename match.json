@@ -1,0 +1,15 @@
+{
+  "eventName": "",
+  "bestOf": 5,
+  "round": "POOLS",
+  "leftPlayerName": "LeftPlayer",
+  "rightPlayerName": "RightPlayer",
+  "initialScore": { "left": 0, "right": 0 },
+  "scoreChanges": [
+    { "at": "00:03:31.224", "left": 1, "right": 0 },
+    { "at": "00:06:48.870", "left": 2, "right": 0 },
+    { "at": "00:11:36.268", "left": 2, "right": 1 },
+    { "at": "00:16:30.577", "left": 2, "right": 2 },
+    { "at": "00:22:18.040", "left": 3, "right": 2 }
+  ]
+}
