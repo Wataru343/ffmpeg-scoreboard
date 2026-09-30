@@ -1,6 +1,6 @@
-# スマバト上部スコアボードの動画合成
+# テロップの動画合成
 
-既存の `SumabatoScoreBoardTop` を、PythonとFFmpegで動画に重ねます。
+既存のテロップを、PythonとFFmpegで動画に重ねます。
 背景、固定テキスト、初期スコアは最初のフレームから表示されます。
 選手名・大会名・Best of・ラウンド名は固定、スコアだけが指定時刻に変わります。
 
@@ -15,10 +15,10 @@
 ## 動画を出力する
 
 `match.json` のサンプルを、実際の選手名・大会情報・スコア変更時刻に書き換えてください。
-サンプルの名前・変更時刻は `36.mp4` の内容から取得したものではありません。
+サンプルの名前・変更時刻は入力動画の内容から取得したものではありません。
 
 ```bash
-python3 scoreboard.py --input 36.mp4 --config match.json --output 36_scoreboard.mp4
+python3 scoreboard.py --input input.mp4 --config match.json --output output.mp4
 ```
 
 映像エンコーダーは次の優先順位で自動選択します。
@@ -42,7 +42,7 @@ NVENCはpreset p4、x264はpreset mediumで、出力のピクセル形式はyuv4
 
 ```json
 {
-  "eventName": "スマバト",
+  "eventName": "大会名",
   "bestOf": 5,
   "round": "Losers Quarter Finals",
   "leftPlayerName": "選手A",
@@ -86,13 +86,13 @@ NVENCはpreset p4、x264はpreset mediumで、出力のピクセル形式はyuv4
 最初の3秒を出力:
 
 ```bash
-python3 scoreboard.py --input 36.mp4 --config match.json --output previews/start.mp4 --duration 3
+python3 scoreboard.py --input input.mp4 --config match.json --output previews/start.mp4 --duration 3
 ```
 
 最初のスコア変更を含む132〜136秒を出力:
 
 ```bash
-python3 scoreboard.py --input 36.mp4 --config match.json --output previews/change.mp4 --start 00:02:12 --duration 4
+python3 scoreboard.py --input input.mp4 --config match.json --output previews/change.mp4 --start 00:02:12 --duration 4
 ```
 
 出力先のフォルダは先に作成してください。`--start` と `--duration` も秒数、`HH:MM:SS.mmm`、`MM:SS.mmm` に対応します。
